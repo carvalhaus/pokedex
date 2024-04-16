@@ -12,7 +12,7 @@ import regions_on from "/regions-on.svg";
 function Nav({ url }) {
   console.log(url);
   return (
-    <nav className="fixed bottom-0 h-20 flex align-middle justify-center w-full border-t-2 border-gray-200 gap-2 px-8 py-1">
+    <nav className="fixed bottom-0 h-20 flex align-middle justify-center w-full border-t-2 border-gray-300 gap-2 px-8 py-1">
       <Link to={"/"} className="content-center">
         <img alt="Pokedex icon" src={pokedex_on} className="h-full" />
       </Link>
