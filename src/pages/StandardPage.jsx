@@ -1,11 +1,12 @@
 import Nav from "@/components/Nav";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 function StandardPage() {
+  let location = useLocation();
   return (
     <main className="flex flex-col content-center justify-center">
       <Outlet />
-      <Nav />
+      <Nav url={location} />
     </main>
   );
 }

@@ -9,20 +9,21 @@ import pokedex_on from "/pokedex-on.svg";
 import regions_off from "/regions-off.svg";
 import regions_on from "/regions-on.svg";
 
-function Nav() {
+function Nav({ url }) {
+  console.log(url);
   return (
     <nav className="fixed bottom-0 h-20 flex align-middle justify-center w-full border-t-2 border-gray-200 gap-2 px-8 py-1">
-      <Link className="content-center">
-        <img src={pokedex_on} className="h-full" />
+      <Link to={"/"} className="content-center">
+        <img alt="Pokedex icon" src={pokedex_on} className="h-full" />
       </Link>
-      <Link className="content-center">
-        <img src={regions_off} className="h-full" />
+      <Link to={"/regions"} className="content-center">
+        <img alt="Location icon" src={regions_off} className="h-full" />
       </Link>
-      <Link className="content-center">
-        <img src={favorites_off} className="h-full" />
+      <Link to={"/favorites"} className="content-center">
+        <img alt="Favorite icon" src={favorites_off} className="h-full" />
       </Link>
-      <Link className="content-center">
-        <img src={menu_off} className="h-full" />
+      <Link to={"/menu"} className="content-center">
+        <img alt="User menu icon" src={menu_off} className="h-full" />
       </Link>
     </nav>
   );
