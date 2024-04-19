@@ -66,7 +66,7 @@ function Nav({ url }) {
   };
 
   return (
-    <nav className="fixed bottom-0 h-20 flex align-middle justify-center w-full border-t-2 border-gray-300 gap-2 px-8 py-1">
+    <nav className="fixed bg-white bottom-0 h-20 flex align-middle justify-center w-full border-t-2 border-gray-300 gap-2 px-8 py-1">
       <Link to={"/"} className="content-center">
         <img
           alt="Pokedex icon"
