@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 
-import favorites_off from "/favorites-off.svg";
-import favorites_on from "/favorites-on.svg";
-import menu_off from "/menu-off.svg";
-import menu_on from "/menu-on.svg";
-import pokedex_off from "/pokedex-off.svg";
-import pokedex_on from "/pokedex-on.svg";
-import regions_off from "/regions-off.svg";
-import regions_on from "/regions-on.svg";
+import favorites_off from "../assets/icons/favorites-off.svg";
+import favorites_on from "../assets/icons//favorites-on.svg";
+import menu_off from "../assets/icons//menu-off.svg";
+import menu_on from "../assets/icons//menu-on.svg";
+import pokedex_off from "../assets/icons//pokedex-off.svg";
+import pokedex_on from "../assets/icons//pokedex-on.svg";
+import regions_off from "../assets/icons//regions-off.svg";
+import regions_on from "../assets/icons//regions-on.svg";
 import { useEffect, useState } from "react";
 
 function Nav({ url }) {
