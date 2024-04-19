@@ -8,31 +8,34 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { pokemonsTypes } from "@/utils/pokemonsTypes";
 
 function Home() {
   return (
     <div className="flex flex-col  gap-6 p-6">
-      <Input type="search" placeholder="Procurar Pokémon" />
+      <Input
+        type="search"
+        placeholder="Procurar Pokémon"
+        className="focus-visible:ring-transparent"
+      />
 
       <div className="flex gap-4 justify-between">
         <Select>
-          <SelectTrigger className="w-[140px]">
+          <SelectTrigger className="w-[140px] focus-visible:ring-transparent">
             <SelectValue placeholder="Todos os tipos" />
           </SelectTrigger>
           <SelectContent>
             <SelectGroup>
               <SelectLabel>Selecione o tipo</SelectLabel>
-              <SelectItem value="apple">Apple</SelectItem>
-              <SelectItem value="banana">Banana</SelectItem>
-              <SelectItem value="blueberry">Blueberry</SelectItem>
-              <SelectItem value="grapes">Grapes</SelectItem>
-              <SelectItem value="pineapple">Pineapple</SelectItem>
+              {pokemonsTypes.map((item) => (
+                <SelectItem value={item.key}>{item.name}</SelectItem>
+              ))}
             </SelectGroup>
           </SelectContent>
         </Select>
 
         <Select>
-          <SelectTrigger className="w-[160px]">
+          <SelectTrigger className="w-[160px] focus-visible:ring-transparent">
             <SelectValue placeholder="Ordenar por" />
           </SelectTrigger>
           <SelectContent>
@@ -46,6 +49,10 @@ function Home() {
           </SelectContent>
         </Select>
       </div>
+
+      {pokemonsTypes.map((item) => (
+        <li key={item.key}>{item.name}</li>
+      ))}
     </div>
   );
 }
