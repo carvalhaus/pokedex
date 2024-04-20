@@ -4,17 +4,20 @@ import StandardPage from "./pages/StandardPage";
 import Regions from "./pages/Regions";
 import Favorites from "./pages/Favorites";
 import Menu from "./pages/Menu";
+import ApiProvider from "./context/ApiContext";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<StandardPage />}>
-        <Route index element={<Home />} />
-        <Route path="regions" element={<Regions />} />
-        <Route path="favorites" element={<Favorites />} />
-        <Route path="menu" element={<Menu />} />
-      </Route>
-    </Routes>
+    <ApiProvider>
+      <Routes>
+        <Route path="/" element={<StandardPage />}>
+          <Route index element={<Home />} />
+          <Route path="regions" element={<Regions />} />
+          <Route path="favorites" element={<Favorites />} />
+          <Route path="menu" element={<Menu />} />
+        </Route>
+      </Routes>
+    </ApiProvider>
   );
 }
 
