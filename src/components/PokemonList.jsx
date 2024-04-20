@@ -1,10 +1,22 @@
+import { useApi } from "@/context/ApiContext";
 import PokemonItem from "./PokemonItem";
 
 function PokemonList() {
+  const pokemonsData = useApi();
+
+  //   const test = Object.values(pokemonsData);
+
   return (
     <ul className="flex flex-col gap-3">
-      <PokemonItem />
-      <PokemonItem />
+      {pokemonsData.map((pokemonData) => (
+        <PokemonItem
+          key={pokemonData.id}
+          name={pokemonData.name}
+          id={pokemonData.id}
+          sprites={pokemonData.sprites}
+          types={pokemonData.types}
+        />
+      ))}
     </ul>
   );
 }

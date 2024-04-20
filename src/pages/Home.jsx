@@ -1,3 +1,4 @@
+import PokemonList from "@/components/PokemonList";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -28,7 +29,9 @@ function Home() {
             <SelectGroup>
               <SelectLabel>Selecione o tipo</SelectLabel>
               {pokemonsTypes.map((item) => (
-                <SelectItem value={item.key}>{item.name}</SelectItem>
+                <SelectItem key={item.key} value={item.key}>
+                  {item.name}
+                </SelectItem>
               ))}
             </SelectGroup>
           </SelectContent>
@@ -50,9 +53,7 @@ function Home() {
         </Select>
       </div>
 
-      {pokemonsTypes.map((item) => (
-        <li key={item.key}>{item.name}</li>
-      ))}
+      <PokemonList />
     </div>
   );
 }
