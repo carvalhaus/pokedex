@@ -29,8 +29,8 @@ function Home() {
               <SelectGroup>
                 <SelectLabel>Selecione o tipo</SelectLabel>
                 {pokemonsTypes.map((item) => (
-                  <SelectItem key={item.key} value={item.key}>
-                    {item.name}
+                  <SelectItem key={item.type} value={item.type}>
+                    {item.type_pt}
                   </SelectItem>
                 ))}
               </SelectGroup>

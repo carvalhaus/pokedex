@@ -13,7 +13,7 @@ import fav_off from "../assets/icons/fav-off.svg";
 
 import teste from "../assets/elements_images/normal.svg";
 
-function PokemonItem({ name, id, sprites, types }) {
+function PokemonItem({ name, id, sprites, types, color }) {
   const Print = () => {
     console.log("CLICKED");
   };
@@ -22,11 +22,11 @@ function PokemonItem({ name, id, sprites, types }) {
 
   const typesNames = types.map((type) => type.type.name);
 
-  console.log(typesNames);
-
   return (
     <li className="list-none w-80 max-[430px]:w-full">
-      <Card className="flex justify-between overflow-hidden h-28 ">
+      <Card
+        className={`flex justify-between overflow-hidden h-28 bg-[${color}]/[0.15]`}
+      >
         <CardHeader className="px-4 py-3 flex justify-between max-[340px]:max-w-32 overflow-x-auto no-scrollbar">
           <CardDescription className="font-bold">Nº {id}</CardDescription>
           <CardTitle className="truncate h-7">{capitalizedName}</CardTitle>
@@ -39,7 +39,7 @@ function PokemonItem({ name, id, sprites, types }) {
           </div>
         </CardHeader>
         <CardContent className="p-0 relative overflow-hidden">
-          <div className="w-32 h-full bg-lime-500 rounded-lg relative">
+          <div className={`w-32 h-full bg-[${color}] rounded-lg relative`}>
             <img src={teste} className="absolute top-0 left-0 my-2 mx-[17px]" />
             <img
               alt="Pokemon image"

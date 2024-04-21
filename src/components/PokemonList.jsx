@@ -2,9 +2,7 @@ import { useApi } from "@/context/ApiContext";
 import PokemonItem from "./PokemonItem";
 
 function PokemonList() {
-  const pokemonsData = useApi();
-
-  //   const test = Object.values(pokemonsData);
+  const { pokemonsData } = useApi();
 
   return (
     <ul className="flex flex-col justify-center items-center gap-3 sm:flex-row-reverse sm:flex-wrap max-[4300px]:w-full">
