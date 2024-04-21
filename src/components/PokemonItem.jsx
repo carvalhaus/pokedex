@@ -11,6 +11,8 @@ import { Toggle } from "./ui/toggle";
 import fav_on from "../assets/icons/fav-on.svg";
 import fav_off from "../assets/icons/fav-off.svg";
 
+import teste from "../assets/elements_images/normal.svg";
+
 function PokemonItem({ name, id, sprites, types }) {
   const Print = () => {
     console.log("CLICKED");
@@ -23,20 +25,27 @@ function PokemonItem({ name, id, sprites, types }) {
   console.log(typesNames);
 
   return (
-    <li className="list-none">
-      <Card className="flex justify-between overflow-hidden">
-        <CardHeader className="px-4 py-3">
-          <CardDescription>Nº {id}</CardDescription>
-          <CardTitle>{capitalizedName}</CardTitle>
-          <div className="flex gap-1">
+    <li className="list-none w-80 max-[430px]:w-full">
+      <Card className="flex justify-between overflow-hidden h-28 ">
+        <CardHeader className="px-4 py-3 flex justify-between max-[340px]:max-w-32 overflow-x-auto no-scrollbar">
+          <CardDescription className="font-bold">Nº {id}</CardDescription>
+          <CardTitle className="truncate h-7">{capitalizedName}</CardTitle>
+          <div className="flex gap-1 m-0">
             {types.map((type, index) => (
-              <Badge key={index}>{type.type.name}</Badge>
+              <Badge key={index} className="mt-0">
+                {type.type.name}
+              </Badge>
             ))}
           </div>
         </CardHeader>
-        <CardContent className="p-0 relative">
-          <div className="w-32 h-full bg-lime-500 flex justify-center items-center rounded-lg">
-            <img alt="Pokemon image" src={sprites.front_default} />
+        <CardContent className="p-0 relative overflow-hidden">
+          <div className="w-32 h-full bg-lime-500 rounded-lg relative">
+            <img src={teste} className="absolute top-0 left-0 my-2 mx-[17px]" />
+            <img
+              alt="Pokemon image"
+              src={sprites.front_default}
+              className="absolute top-0 left-0 my-[7px] mx-4"
+            />
           </div>
           <Toggle
             className="absolute right-1 top-1 p-0 h-8 data-[state=on]:bg-transparent hover:bg-transparent"

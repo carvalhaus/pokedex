@@ -4,7 +4,7 @@ import { Outlet, useLocation } from "react-router-dom";
 function StandardPage() {
   let location = useLocation();
   return (
-    <main className="pb-20 flex flex-col content-center justify-center">
+    <main className="pb-20">
       <Outlet />
       <Nav url={location} />
     </main>

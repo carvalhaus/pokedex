@@ -7,7 +7,7 @@ function PokemonList() {
   //   const test = Object.values(pokemonsData);
 
   return (
-    <ul className="flex flex-col gap-3">
+    <ul className="flex flex-col justify-center items-center gap-3 sm:flex-row-reverse sm:flex-wrap max-[4300px]:w-full">
       {pokemonsData.map((pokemonData) => (
         <PokemonItem
           key={pokemonData.id}
