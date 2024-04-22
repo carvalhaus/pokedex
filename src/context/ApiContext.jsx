@@ -8,32 +8,8 @@ export const useApi = () => {
   return useContext(ApiContext);
 };
 
-const mergeData = (originalData, typesData) => {
-  const mapByType = new Map();
-
-  typesData.map((obj) => {
-    mapByType.set(obj.type, obj);
-  });
-
-  const combinedArray = originalData
-    .map((obj1) => {
-      const obj2 = mapByType.get(obj1.types[0].type.name);
-      if (obj2) {
-        return { ...obj1, ...obj2 };
-      } else {
-        return null;
-      }
-    })
-    .filter(Boolean);
-
-  console.log("array merged");
-
-  return combinedArray;
-};
-
 function ApiProvider({ children }) {
   const [pokemonsData, setPokemonsData] = useState([]);
-  const [mergedData, setMergedData] = useState();
 
   const getPokemonData = async () => {
     try {
@@ -53,9 +29,6 @@ function ApiProvider({ children }) {
       }
 
       setPokemonsData(fetchedData);
-
-      const newArray = mergeData(pokemonsData, pokemonsTypes);
-      setMergedData(newArray);
     } catch (error) {
       console.error("Error fetching objects:", error);
     }
@@ -66,7 +39,7 @@ function ApiProvider({ children }) {
   }, []);
 
   return (
-    <ApiContext.Provider value={{ pokemonsData, mergedData }}>
+    <ApiContext.Provider value={{ pokemonsData }}>
       {children}
     </ApiContext.Provider>
   );
