@@ -10,10 +10,12 @@ export const useApi = () => {
 
 function ApiProvider({ children }) {
   const [pokemonsData, setPokemonsData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const getPokemonData = async () => {
     try {
       const fetchedData = [];
+      setLoading(true);
 
       for (let i = 1; i <= 20; i++) {
         const response = await axios.get(
@@ -29,6 +31,7 @@ function ApiProvider({ children }) {
       }
 
       setPokemonsData(fetchedData);
+      setLoading(false);
     } catch (error) {
       console.error("Error fetching objects:", error);
     }
@@ -39,7 +42,7 @@ function ApiProvider({ children }) {
   }, []);
 
   return (
-    <ApiContext.Provider value={{ pokemonsData }}>
+    <ApiContext.Provider value={{ pokemonsData, loading }}>
       {children}
     </ApiContext.Provider>
   );
