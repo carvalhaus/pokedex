@@ -4,8 +4,9 @@ import loading_image from ".././assets/loading.svg";
 import loading_ellipse from ".././assets/loading-ellipse.svg";
 
 function PokemonList() {
-  const { pokemonsData, loading } = useApi();
+  const { pokemonsList, loading } = useApi();
 
+  console.log(pokemonsList);
   if (loading) {
     return (
       <div className="pt-48 flex flex-col justify-center items-center gap-6">
@@ -17,14 +18,8 @@ function PokemonList() {
 
   return (
     <ul className="flex flex-col justify-center items-center gap-3 sm:flex-row sm:flex-wrap max-[4300px]:w-full">
-      {pokemonsData.map((pokemonData) => (
-        <PokemonItem
-          key={pokemonData.id}
-          name={pokemonData.name}
-          id={pokemonData.id}
-          sprites={pokemonData.sprites}
-          types={pokemonData.types}
-        />
+      {pokemonsList.map((pokemonData, index) => (
+        <PokemonItem key={index} name={data.name} />
       ))}
     </ul>
   );

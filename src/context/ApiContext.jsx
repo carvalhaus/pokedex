@@ -1,6 +1,5 @@
-import axios from "axios";
-import { createContext, useContext, useEffect, useState } from "react";
-import { pokemonsTypes } from "@/utils/pokemonsTypes";
+import { createContext, useContext, useState } from "react";
+import getApi from "@/hooks/getApi";
 
 const ApiContext = createContext();
 
@@ -9,42 +8,22 @@ export const useApi = () => {
 };
 
 function ApiProvider({ children }) {
-  const [pokemonsData, setPokemonsData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [pokemonsList, setPokemonsList] = useState([]);
+  const { data, loading } = getApi(
+    "https://pokeapi.co/api/v2/pokemon?limit=5&offset=0"
+  );
 
-  const getPokemonData = async () => {
-    try {
-      const fetchedData = [];
-      setLoading(true);
+  setPokemonsList(data.results);
 
-      for (let i = 1; i <= 20; i++) {
-        const response = await axios.get(
-          `https://pokeapi.co/api/v2/pokemon/${i}`
-        );
+  // const pokemonsData = pokemonsList.map((pokemon) => {
+  //   const { data, loading } = getApi(
+  //     `https://pokeapi.co/api/v2/pokemon/${pokemon.name}`
+  //   );
 
-        if (response.status === 200) {
-          const object = response.data;
-          fetchedData.push(object);
-        } else {
-          console.error("Failed to fetch Pokemon with Id ${i}");
-        }
-      }
-
-      setPokemonsData(fetchedData);
-      setLoading(false);
-    } catch (error) {
-      console.error("Error fetching objects:", error);
-    }
-  };
-
-  useEffect(() => {
-    getPokemonData();
-  }, []);
+  // );
 
   return (
-    <ApiContext.Provider value={{ pokemonsData, loading }}>
-      {children}
-    </ApiContext.Provider>
+    <ApiContext.Provider value={pokemonsList}>{children}</ApiContext.Provider>
   );
 }
 

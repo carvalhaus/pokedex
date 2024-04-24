@@ -12,20 +12,23 @@ import fav_on from "../assets/icons/fav-on.svg";
 import fav_off from "../assets/icons/fav-off.svg";
 
 import { pokemonsTypes } from "@/utils/pokemonsTypes";
+import getApi from "@/hooks/getApi";
 
-function PokemonItem({ name, id, sprites, types }) {
+function PokemonItem({ name }) {
+  // const { data } = getApi(`https://pokeapi.co/api/v2/pokemon/${name}`);
+
   const Print = () => {
     console.log("CLICKED");
   };
 
-  const capitalizedName = name[0].toUpperCase() + name.slice(1);
+  const capitalizedName = name[0].toUpperCase() + data.name.slice(1);
 
   const firstPokemonType = pokemonsTypes.filter(
-    (element) => element.type === types[0].type.name
+    (element) => element.type === data.types[0].type.name
   );
 
   const secondPokemonType = pokemonsTypes.filter(
-    (element) => types.length > 1 && element.type === types[1].type.name
+    (element) => types.length > 1 && element.type === data.types[1].type.name
   );
 
   const pokemonType = [...firstPokemonType, ...secondPokemonType];
@@ -37,7 +40,7 @@ function PokemonItem({ name, id, sprites, types }) {
         className={`flex justify-between overflow-hidden h-28`}
       >
         <CardHeader className="px-4 py-3 flex justify-between max-[340px]:max-w-32 overflow-x-auto no-scrollbar">
-          <CardDescription className="font-bold">Nº {id}</CardDescription>
+          <CardDescription className="font-bold">Nº {data.id}</CardDescription>
           <CardTitle className="truncate h-7">{capitalizedName}</CardTitle>
           <div className="flex gap-1 m-0">
             {pokemonType.map((type, index) => (
@@ -64,7 +67,7 @@ function PokemonItem({ name, id, sprites, types }) {
             />
             <img
               alt="Pokemon image"
-              src={sprites.front_default}
+              src={data.sprites.front_default}
               className="absolute top-0 left-0 my-[7px] mx-4"
             />
           </div>
