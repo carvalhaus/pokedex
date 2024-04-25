@@ -15,7 +15,7 @@ function PokemonList() {
   }
 
   return (
-    <ul className="flex flex-col justify-center items-center gap-3 sm:flex-row sm:flex-wrap max-[4300px]:w-full">
+    <ul className="flex flex-col justify-center items-center gap-3 sm:flex-row sm:flex-wrap max-[430px]:w-full">
       {pokemonsList?.map((pokemon, index) => (
         <PokemonItem key={index} param={pokemon.url} />
       ))}
