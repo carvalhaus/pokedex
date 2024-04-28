@@ -9,6 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+
 import { pokemonsTypes } from "@/utils/pokemonsTypes";
 
 function Home() {
@@ -52,7 +53,6 @@ function Home() {
           </Select>
         </div>
       </header>
-
       <PokemonList />
     </div>
   );
