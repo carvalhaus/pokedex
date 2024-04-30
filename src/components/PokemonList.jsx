@@ -5,6 +5,7 @@ import Error from "./Error";
 import loading_ellipse from ".././assets/loading-ellipse.svg";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
+import NotFound from "./NotFound";
 
 function PokemonList({ type, sort }) {
   const { pokemons, loading, morePokemons, error } = useApi();
@@ -14,13 +15,13 @@ function PokemonList({ type, sort }) {
     morePokemons();
   };
 
-  const filterByType = (pokemon) => {
+  const filterPokemonsByType = sortedPokemons.filter((pokemon) => {
     const filtered =
       pokemon.types[0].type.name === type ||
       pokemon.types[1]?.type.name === type;
 
     return filtered;
-  };
+  });
 
   const handleSort = () => {
     const sorted = [...pokemons];
@@ -56,27 +57,29 @@ function PokemonList({ type, sort }) {
           <Error />
         ) : (
           <>
-            {!type
-              ? sortedPokemons.map((pokemon) => (
-                  <PokemonItem
-                    key={pokemon.id}
-                    name={pokemon.name}
-                    types={pokemon.types}
-                    sprites={pokemon.sprites}
-                    id={pokemon.id}
-                  />
-                ))
-              : sortedPokemons
-                  .filter(filterByType)
-                  .map((filteredPokemon) => (
-                    <PokemonItem
-                      key={filteredPokemon.id}
-                      name={filteredPokemon.name}
-                      types={filteredPokemon.types}
-                      sprites={filteredPokemon.sprites}
-                      id={filteredPokemon.id}
-                    />
-                  ))}
+            {!type ? (
+              sortedPokemons.map((pokemon) => (
+                <PokemonItem
+                  key={pokemon.id}
+                  name={pokemon.name}
+                  types={pokemon.types}
+                  sprites={pokemon.sprites}
+                  id={pokemon.id}
+                />
+              ))
+            ) : filterPokemonsByType.length > 0 ? (
+              filterPokemonsByType.map((filteredPokemon) => (
+                <PokemonItem
+                  key={filteredPokemon.id}
+                  name={filteredPokemon.name}
+                  types={filteredPokemon.types}
+                  sprites={filteredPokemon.sprites}
+                  id={filteredPokemon.id}
+                />
+              ))
+            ) : (
+              <NotFound />
+            )}
           </>
         )}
       </ul>
