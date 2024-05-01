@@ -7,7 +7,7 @@ import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
 import NotFound from "./NotFound";
 
-function PokemonList({ type, sort }) {
+function PokemonList({ type, sort, searchBar }) {
   const { pokemons, loading, morePokemons, error } = useApi();
   const [sortedPokemons, setSortedPokemons] = useState([]);
 
@@ -15,12 +15,18 @@ function PokemonList({ type, sort }) {
     morePokemons();
   };
 
-  const filterPokemonsByType = sortedPokemons.filter((pokemon) => {
-    const filtered =
+  const filterPokemons = sortedPokemons.filter((pokemon) => {
+    const filteredByType =
       pokemon.types[0].type.name === type ||
       pokemon.types[1]?.type.name === type;
 
-    return filtered;
+    const searched = pokemon.name.includes(searchBar);
+
+    if (!searchBar) {
+      return filteredByType;
+    } else {
+      return searched;
+    }
   });
 
   const handleSort = () => {
@@ -57,7 +63,7 @@ function PokemonList({ type, sort }) {
           <Error />
         ) : (
           <>
-            {!type ? (
+            {!type && !searchBar ? (
               sortedPokemons.map((pokemon) => (
                 <PokemonItem
                   key={pokemon.id}
@@ -67,8 +73,8 @@ function PokemonList({ type, sort }) {
                   id={pokemon.id}
                 />
               ))
-            ) : filterPokemonsByType.length > 0 ? (
-              filterPokemonsByType.map((filteredPokemon) => (
+            ) : filterPokemons.length > 0 ? (
+              filterPokemons.map((filteredPokemon) => (
                 <PokemonItem
                   key={filteredPokemon.id}
                   name={filteredPokemon.name}
@@ -87,7 +93,11 @@ function PokemonList({ type, sort }) {
         {loading ? (
           <img className="animate-spin" src={loading_ellipse} />
         ) : (
-          <Button onClick={handleMorePokemons}>Mais Pokemons</Button>
+          <>
+            {!type && !searchBar && (
+              <Button onClick={handleMorePokemons}>Mais Pokemons</Button>
+            )}
+          </>
         )}
       </div>
     </div>

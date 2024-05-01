@@ -16,6 +16,7 @@ import { useState } from "react";
 function Home() {
   const [type, setTypes] = useState("");
   const [sort, setSort] = useState("lower_number");
+  const [searchBar, setSearchBar] = useState("");
 
   return (
     <div className="flex flex-col gap-6 p-6 justify-center items-center ">
@@ -24,6 +25,9 @@ function Home() {
           type="search"
           placeholder="Procurar Pokémon"
           className="focus-visible:ring-transparent"
+          onChange={(e) => {
+            setSearchBar(e.target.value.toLowerCase());
+          }}
         />
         <div className="flex gap-1 justify-between sm:justify-center sm:gap-6">
           <Select
@@ -68,7 +72,7 @@ function Home() {
           </Select>
         </div>
       </header>
-      <PokemonList type={type} sort={sort} />
+      <PokemonList type={type} sort={sort} searchBar={searchBar} />
     </div>
   );
 }
