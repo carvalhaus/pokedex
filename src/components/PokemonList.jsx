@@ -94,7 +94,7 @@ function PokemonList({ type, sort, searchBar }) {
                 );
                 return (
                   <PokemonItem
-                    pokemon={filterPokemons}
+                    pokemon={filteredPokemon}
                     key={filteredPokemon.id}
                     isFavorited={isFavorited}
                     addFavorite={addFavorite}
