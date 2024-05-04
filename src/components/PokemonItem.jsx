@@ -12,11 +12,17 @@ import fav_on from "../assets/icons/fav-on.svg";
 import fav_off from "../assets/icons/fav-off.svg";
 
 import { pokemonsTypes } from "@/utils/pokemonsTypes";
+import { useState } from "react";
+import { useApi } from "@/context/ApiContext";
+import { useLocation } from "react-router-dom";
 
-function PokemonItem({ name, types, sprites, id }) {
-  const Print = () => {
-    console.log("CLICKED");
-  };
+function PokemonItem({
+  pokemon = {},
+  addFavorite,
+  removeFavorite,
+  isFavorited,
+}) {
+  const { id, name, types, sprites } = pokemon;
 
   const capitalizedName = `${name[0].toUpperCase()}${name.slice(1)}`;
 
@@ -29,6 +35,10 @@ function PokemonItem({ name, types, sprites, id }) {
   );
 
   const pokemonType = [...firstPokemonType, ...secondPokemonType];
+
+  let location = useLocation();
+
+  location === "favorites" && setFavorite(true);
 
   return (
     <li className="list-none w-80 max-[430px]:w-full">
@@ -69,11 +79,20 @@ function PokemonItem({ name, types, sprites, id }) {
               className="absolute top-0 left-0 my-[7px] mx-4"
             />
           </div>
-          <Toggle
-            className="absolute right-1 top-1 p-0 h-8 data-[state=on]:bg-transparent hover:bg-transparent"
-            onClick={Print}
-          >
-            <img alt="Favorite icon" src={fav_off} />
+          <Toggle className="absolute right-1 top-1 p-0 h-8 data-[state=on]:bg-transparent hover:bg-transparent">
+            {isFavorited ? (
+              <img
+                alt="Icon of favorite filled"
+                src={fav_on}
+                onClick={() => removeFavorite(id)}
+              />
+            ) : (
+              <img
+                alt="Icon of favorite outlined"
+                src={fav_off}
+                onClick={() => addFavorite(pokemon)}
+              />
+            )}
           </Toggle>
         </CardContent>
       </Card>

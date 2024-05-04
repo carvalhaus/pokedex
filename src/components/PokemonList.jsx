@@ -8,7 +8,18 @@ import { useEffect, useState } from "react";
 import NotFound from "./NotFound";
 
 function PokemonList({ type, sort, searchBar }) {
-  const { pokemons, loading, morePokemons, error } = useApi();
+  const {
+    pokemons,
+    loading,
+    morePokemons,
+    error,
+    addFavorite,
+    removeFavorite,
+    favoriteList,
+  } = useApi();
+
+  console.log(favoriteList);
+
   const [sortedPokemons, setSortedPokemons] = useState([]);
 
   const handleMorePokemons = () => {
@@ -64,25 +75,35 @@ function PokemonList({ type, sort, searchBar }) {
         ) : (
           <>
             {!type && !searchBar ? (
-              sortedPokemons.map((pokemon) => (
-                <PokemonItem
-                  key={pokemon.id}
-                  name={pokemon.name}
-                  types={pokemon.types}
-                  sprites={pokemon.sprites}
-                  id={pokemon.id}
-                />
-              ))
+              sortedPokemons.map((pokemon) => {
+                const isFavorited = favoriteList?.some(
+                  (p) => p.id === pokemon.id
+                );
+                return (
+                  <PokemonItem
+                    pokemon={pokemon}
+                    key={pokemon.id}
+                    isFavorited={isFavorited}
+                    addFavorite={addFavorite}
+                    removeFavorite={removeFavorite}
+                  />
+                );
+              })
             ) : filterPokemons.length > 0 ? (
-              filterPokemons.map((filteredPokemon) => (
-                <PokemonItem
-                  key={filteredPokemon.id}
-                  name={filteredPokemon.name}
-                  types={filteredPokemon.types}
-                  sprites={filteredPokemon.sprites}
-                  id={filteredPokemon.id}
-                />
-              ))
+              filterPokemons.map((filteredPokemon) => {
+                const isFavorited = favoriteList?.some(
+                  (p) => p.id === filteredPokemon.id
+                );
+                return (
+                  <PokemonItem
+                    pokemon={filterPokemons}
+                    key={filteredPokemon.id}
+                    isFavorited={isFavorited}
+                    addFavorite={addFavorite}
+                    removeFavorite={removeFavorite}
+                  />
+                );
+              })
             ) : (
               <NotFound />
             )}
@@ -95,7 +116,12 @@ function PokemonList({ type, sort, searchBar }) {
         ) : (
           <>
             {!type && !searchBar && (
-              <Button onClick={handleMorePokemons}>Mais Pokemons</Button>
+              <Button
+                onClick={handleMorePokemons}
+                className="bg-[rgb(25,66,165)]"
+              >
+                Mais Pokemons
+              </Button>
             )}
           </>
         )}
