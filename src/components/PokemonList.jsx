@@ -18,8 +18,6 @@ function PokemonList({ type, sort, searchBar }) {
     favoriteList,
   } = useApi();
 
-  console.log(favoriteList);
-
   const [sortedPokemons, setSortedPokemons] = useState([]);
 
   const handleMorePokemons = () => {
