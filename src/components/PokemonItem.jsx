@@ -12,8 +12,7 @@ import fav_on from "../assets/icons/fav-on.svg";
 import fav_off from "../assets/icons/fav-off.svg";
 
 import { pokemonsTypes } from "@/utils/pokemonsTypes";
-import { useState } from "react";
-import { useApi } from "@/context/ApiContext";
+
 import { useLocation } from "react-router-dom";
 
 function PokemonItem({
