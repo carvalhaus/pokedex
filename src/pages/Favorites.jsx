@@ -1,3 +1,4 @@
+import NoFavorites from "@/components/NoFavorites";
 import PokemonItem from "@/components/PokemonItem";
 import { useApi } from "@/context/ApiContext";
 
@@ -27,7 +28,7 @@ function Favorites() {
               );
             })
           ) : (
-            <h2 className="pt-36 text-2xl">Não há Pokémons favoritos!</h2>
+            <NoFavorites />
           )}
         </ul>
       </div>
