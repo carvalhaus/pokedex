@@ -1,6 +1,7 @@
 import { SheetHeader } from "./ui/sheet";
 import characters from "../assets/characters.png";
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 
 function HeaderMenu() {
   return (
@@ -11,12 +12,15 @@ function HeaderMenu() {
         </p>
         <img src={characters} className="w-[120px]" />
       </div>
-      <Button
-        variant="outline"
-        className="text-[#173EA5] border-[#173EA5] border-2 font-bold"
-      >
-        Entre ou Cadastre-se
-      </Button>
+
+      <Link to={"/auth"}>
+        <Button
+          variant="outline"
+          className="text-[#173EA5] border-[#173EA5] border-2 font-bold w-full"
+        >
+          Entre ou Cadastre-se
+        </Button>
+      </Link>
     </SheetHeader>
   );
 }

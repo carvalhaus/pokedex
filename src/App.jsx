@@ -5,6 +5,7 @@ import Regions from "./pages/Regions";
 import Favorites from "./pages/Favorites";
 import Menu from "./components/Menu";
 import ApiProvider from "./context/ApiContext";
+import Auth from "./pages/Auth";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="regions" element={<Regions />} />
           <Route path="favorites" element={<Favorites />} />
         </Route>
+        <Route path="/auth" element={<Auth />} />
       </Routes>
     </ApiProvider>
   );
