@@ -1,3 +1,4 @@
+import { useApi } from "@/context/ApiContext";
 import AccountInfo from "./AccountInfo";
 import ContentMenu from "./ContentMenu";
 import HeaderMenu from "./HeaderMenu";
@@ -5,10 +6,11 @@ import { ScrollArea, ScrollBar } from "./ui/scroll-area";
 import { Switch } from "./ui/switch";
 
 function Menu() {
+  const { isLogged, setIsLogged } = useApi();
+
   return (
     <ScrollArea className="h-full px-4">
-      {/* <HeaderMenu /> */}
-      <AccountInfo />
+      {isLogged ? <AccountInfo /> : <HeaderMenu />}
       <div className="pt-5 flex flex-col gap-8">
         <ContentMenu
           title="Pokédex"

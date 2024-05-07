@@ -19,6 +19,8 @@ const getInitialState = () => {
 function ApiProvider({ children }) {
   const { pokemons, error, morePokemons, loading } = usePokemons();
 
+  const [isLogged, setIsLogged] = useState(false);
+
   const [favoriteList, setFavoriteList] = useState(getInitialState);
 
   const addFavorite = (pokemon) =>
@@ -47,6 +49,8 @@ function ApiProvider({ children }) {
         addFavorite,
         removeFavorite,
         ...favoriteList,
+        isLogged,
+        setIsLogged,
       }}
     >
       {children}
