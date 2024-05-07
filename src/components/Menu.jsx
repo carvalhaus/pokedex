@@ -1,3 +1,4 @@
+import AccountInfo from "./AccountInfo";
 import ContentMenu from "./ContentMenu";
 import HeaderMenu from "./HeaderMenu";
 import { ScrollArea, ScrollBar } from "./ui/scroll-area";
@@ -6,7 +7,8 @@ import { Switch } from "./ui/switch";
 function Menu() {
   return (
     <ScrollArea className="h-full px-4">
-      <HeaderMenu />
+      {/* <HeaderMenu /> */}
+      <AccountInfo />
       <div className="pt-5 flex flex-col gap-8">
         <ContentMenu
           title="Pokédex"
