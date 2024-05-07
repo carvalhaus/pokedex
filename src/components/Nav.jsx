@@ -9,6 +9,8 @@ import pokedex_on from "../assets/icons//pokedex-on.svg";
 import regions_off from "../assets/icons//regions-off.svg";
 import regions_on from "../assets/icons//regions-on.svg";
 import { useEffect, useState } from "react";
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import Menu from "./Menu";
 
 function Nav({ url }) {
   const [animate, setAnimate] = useState(false);
@@ -47,12 +49,6 @@ function Nav({ url }) {
         updatedIcons.favorites_icon = favorites_on;
         updatedIcons.menu_icon = menu_off;
         break;
-      case "/menu":
-        updatedIcons.pokedex_icon = pokedex_off;
-        updatedIcons.regions_icon = regions_off;
-        updatedIcons.favorites_icon = favorites_off;
-        updatedIcons.menu_icon = menu_on;
-        break;
       default:
         updatedIcons.pokedex_icon = pokedex_on;
         updatedIcons.regions_icon = regions_off;
@@ -66,7 +62,7 @@ function Nav({ url }) {
   };
 
   return (
-    <nav className="fixed bg-white bottom-0 h-20 flex align-middle justify-center w-full border-t-2 border-gray-300 gap-2 px-8 py-1">
+    <nav className="fixed bg-white bottom-0 h-20 flex align-middle justify-center w-screen border-t-2 border-gray-300 gap-2 px-8 py-1">
       <Link to={"/"} className="content-center">
         <img
           alt="Pokedex icon"
@@ -88,13 +84,18 @@ function Nav({ url }) {
           className={`h-full ${animate ? "animate-fadeInUp_animantion" : ""}`}
         />
       </Link>
-      <Link to={"/menu"} className="content-center">
-        <img
-          alt="User menu icon"
-          src={icons.menu_icon}
-          className={`h-full ${animate ? "animate-fadeInUp_animantion" : ""}`}
-        />
-      </Link>
+      <Sheet>
+        <SheetTrigger>
+          <img
+            alt="User menu icon"
+            src={icons.menu_icon}
+            className={`h-full ${animate ? "animate-fadeInUp_animantion" : ""}`}
+          />
+        </SheetTrigger>
+        <SheetContent className="w-11/12 p-4 pt-7 text-left">
+          <Menu />
+        </SheetContent>
+      </Sheet>
     </nav>
   );
 }
