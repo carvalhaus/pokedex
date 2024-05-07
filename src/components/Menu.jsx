@@ -5,9 +5,9 @@ import { Switch } from "./ui/switch";
 
 function Menu() {
   return (
-    <ScrollArea className="h-full">
+    <ScrollArea className="h-full px-4">
       <HeaderMenu />
-      <div className="py-5 flex flex-col gap-8">
+      <div className="pt-5 flex flex-col gap-8">
         <ContentMenu
           title="Pokédex"
           subtitle_one="Mega evoluções"

@@ -92,7 +92,7 @@ function Nav({ url }) {
             className={`h-full ${animate ? "animate-fadeInUp_animantion" : ""}`}
           />
         </SheetTrigger>
-        <SheetContent className="w-11/12 p-4 pt-7 text-left">
+        <SheetContent className="w-11/12 p-0 py-7 text-left ">
           <Menu />
         </SheetContent>
       </Sheet>
