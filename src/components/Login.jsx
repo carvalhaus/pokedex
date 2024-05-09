@@ -30,7 +30,10 @@ function Login() {
         <Button className="w-80 bg-[#173EA5] m-2 font-semibold">
           Criar conta
         </Button>
-        <Button className="w-80 font-semibold text-[#173EA5]" variant="ghost">
+        <Button
+          className="w-80 font-semibold text-[#173EA5] hover:text-[#173EA5]"
+          variant="ghost"
+        >
           Já tenho uma conta
         </Button>
       </div>
