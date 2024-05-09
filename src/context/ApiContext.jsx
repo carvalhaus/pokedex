@@ -1,5 +1,12 @@
 import usePokemons from "@/hooks/usePokemons";
+import { auth } from "@/services/firebase";
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  signInWithRedirect,
+} from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const initFavorite = {
   favoriteList: [],
@@ -17,11 +24,34 @@ const getInitialState = () => {
 };
 
 function ApiProvider({ children }) {
+  const navigate = useNavigate();
+
   const { pokemons, error, morePokemons, loading } = usePokemons();
 
   const [isLogged, setIsLogged] = useState(false);
 
   const [favoriteList, setFavoriteList] = useState(getInitialState);
+
+  const [user, setUser] = useState(null);
+
+  const handleGoogleSignIn = () => {
+    const provider = new GoogleAuthProvider();
+
+    console.log("CLICKED");
+
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  console.log(user);
 
   const addFavorite = (pokemon) =>
     setFavoriteList((prev) => ({
@@ -51,6 +81,7 @@ function ApiProvider({ children }) {
         ...favoriteList,
         isLogged,
         setIsLogged,
+        handleGoogleSignIn,
       }}
     >
       {children}

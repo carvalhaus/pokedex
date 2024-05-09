@@ -6,10 +6,10 @@ function Login() {
     <div className="flex flex-col gap-8 text-center items-center justify-center h-screen p-4 animate-fade_animation relative">
       <Link
         to={"/"}
-        className="absolute right-3 top-5 flex gap-1 items-center font-medium"
+        className="absolute right-3 top-8 flex items-center font-medium"
       >
-        <p>Pular</p>
-        <img src="src/assets/Arrow.svg" alt="Arrow image" />
+        <p className="text-sm">Pular</p>
+        <img src="src/assets/Arrow_right.svg" alt="Arrow right image" />
       </Link>
 
       <div className="flex flex-col gap-2 text-center items-center">
@@ -27,15 +27,20 @@ function Login() {
       </div>
 
       <div>
-        <Button className="w-80 bg-[#173EA5] m-2 font-semibold">
-          Criar conta
-        </Button>
-        <Button
-          className="w-80 font-semibold text-[#173EA5] hover:text-[#173EA5]"
-          variant="ghost"
-        >
-          Já tenho uma conta
-        </Button>
+        <Link to={"/register"}>
+          <Button className="w-80 bg-[#173EA5] m-2 font-semibold">
+            Criar conta
+          </Button>
+        </Link>
+
+        <Link to={"/login"}>
+          <Button
+            className="w-80 font-semibold text-[#173EA5] hover:text-[#173EA5]"
+            variant="ghost"
+          >
+            Já tenho uma conta
+          </Button>
+        </Link>
       </div>
     </div>
   );

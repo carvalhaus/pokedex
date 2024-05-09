@@ -6,6 +6,8 @@ import Favorites from "./pages/Favorites";
 import Menu from "./components/Menu";
 import ApiProvider from "./context/ApiContext";
 import Auth from "./pages/Auth";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           <Route path="favorites" element={<Favorites />} />
         </Route>
         <Route path="/auth" element={<Auth />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </ApiProvider>
   );
