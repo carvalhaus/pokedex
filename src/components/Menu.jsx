@@ -2,15 +2,32 @@ import { useApi } from "@/context/ApiContext";
 import AccountInfo from "./AccountInfo";
 import ContentMenu from "./ContentMenu";
 import HeaderMenu from "./HeaderMenu";
-import { ScrollArea, ScrollBar } from "./ui/scroll-area";
-import { Switch } from "./ui/switch";
+import { ScrollArea } from "./ui/scroll-area";
+import { useState } from "react";
 
 function Menu() {
-  const { isLogged, setIsLogged } = useApi();
+  const { isLogged, user } = useApi();
+
+  const [userData, setUserData] = useState({ ...user, username: "" });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setUserData((userData) => ({
+      ...userData,
+      [name]: value,
+    }));
+
+    console.log(userData);
+  };
 
   return (
     <ScrollArea className="h-full px-4">
-      {isLogged ? <AccountInfo /> : <HeaderMenu />}
+      {isLogged ? (
+        <AccountInfo userData={userData} handleChange={handleChange} />
+      ) : (
+        <HeaderMenu />
+      )}
       <div className="pt-5 flex flex-col gap-8">
         <ContentMenu
           title="Pokédex"

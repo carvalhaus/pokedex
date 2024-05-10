@@ -1,4 +1,4 @@
-import { Avatar, AvatarFallback } from "./ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
 import {
   Dialog,
@@ -12,16 +12,21 @@ import {
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 
-function AccountInfo() {
+function AccountInfo({ userData = {}, handleChange }) {
+  const { email, photoURL, displayName, username } = userData;
   return (
     <Dialog>
       <DialogTrigger className="text-left pb-5 border-b-2 flex gap-2 items-center w-full">
         <Avatar>
-          <AvatarFallback className="bg-[#173EA5] text-white">
-            JS
-          </AvatarFallback>
+          {photoURL ? (
+            <AvatarImage src={photoURL} alt="Profile picture" />
+          ) : (
+            <AvatarFallback className="bg-[#173EA5] text-white">
+              {displayName[0]}
+            </AvatarFallback>
+          )}
         </Avatar>
-        <p className="text-lg font-semibold">JuniorSaraiva</p>
+        <p className="text-lg font-semibold">{displayName}</p>
       </DialogTrigger>
 
       <DialogContent className="sm:max-w-[425px] w-11/12 p-5">
@@ -39,8 +44,9 @@ function AccountInfo() {
             </Label>
             <Input
               id="name"
-              defaultValue="Pedro Duarte"
+              defaultValue={displayName}
               className="col-span-3"
+              disabled
             />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
@@ -49,8 +55,10 @@ function AccountInfo() {
             </Label>
             <Input
               id="username"
-              defaultValue="@peduarte"
+              defaultValue={username}
               className="col-span-3"
+              name="username"
+              onChange={handleChange}
             />
           </div>
           <div className="grid grid-cols-4 items-center gap-4">
@@ -59,12 +67,16 @@ function AccountInfo() {
             </Label>
             <Input
               id="email"
-              defaultValue="junior@saraiva.com"
+              defaultValue={email}
               className="col-span-3"
+              disabled
             />
           </div>
         </div>
         <DialogFooter>
+          <Button type="submit" variant="outline">
+            Alterar senha
+          </Button>
           <Button type="submit">Salvar</Button>
         </DialogFooter>
       </DialogContent>

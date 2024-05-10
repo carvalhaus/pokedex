@@ -1,24 +1,19 @@
 import usePokemons from "@/hooks/usePokemons";
 import { auth } from "@/services/firebase";
-import {
-  GoogleAuthProvider,
-  signInWithPopup,
-  signInWithRedirect,
-} from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const initFavorite = {
   favoriteList: [],
 };
-
 const ApiContext = createContext();
 
 export const useApi = () => {
   return useContext(ApiContext);
 };
 
-const getInitialState = () => {
+const getInitialFavoriteListState = () => {
   const favoriteList = localStorage.getItem("FAVORITES_POKEMONS");
   return favoriteList ? JSON.parse(favoriteList) : initFavorite;
 };
@@ -30,28 +25,28 @@ function ApiProvider({ children }) {
 
   const [isLogged, setIsLogged] = useState(false);
 
-  const [favoriteList, setFavoriteList] = useState(getInitialState);
+  const [favoriteList, setFavoriteList] = useState(getInitialFavoriteListState);
 
   const [user, setUser] = useState(null);
 
   const handleGoogleSignIn = () => {
     const provider = new GoogleAuthProvider();
 
-    console.log("CLICKED");
-
     signInWithPopup(auth, provider)
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
 
-        console.log(result.user);
+        setUser(result.user);
+        setIsLogged(true);
+      })
+      .then(() => {
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
       });
   };
-
-  console.log(user);
 
   const addFavorite = (pokemon) =>
     setFavoriteList((prev) => ({
@@ -82,6 +77,7 @@ function ApiProvider({ children }) {
         isLogged,
         setIsLogged,
         handleGoogleSignIn,
+        user,
       }}
     >
       {children}
