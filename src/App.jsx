@@ -3,11 +3,11 @@ import Home from "./pages/Home";
 import StandardPage from "./pages/StandardPage";
 import Regions from "./pages/Regions";
 import Favorites from "./pages/Favorites";
-import Menu from "./components/Menu";
 import ApiProvider from "./context/ApiContext";
 import Auth from "./pages/Auth";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import Pokemon from "./pages/Pokemon";
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
         <Route path="/auth" element={<Auth />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/pokemon/:id" element={<Pokemon />} />
       </Routes>
     </ApiProvider>
   );
