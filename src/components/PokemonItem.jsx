@@ -63,19 +63,26 @@ function PokemonItem({
               ))}
             </div>
           </CardHeader>
-          <CardContent className="p-0 relative overflow-hidden">
+          <CardContent
+            style={{
+              backgroundColor: `rgb(${pokemonType[0].color})`,
+            }}
+            className="p-0 relative overflow-hidden"
+          >
             <div
-              style={{ backgroundColor: `rgb(${pokemonType[0].color})` }}
-              className={`w-32 h-full rounded-lg relative`}
+              style={{
+                background: `url(${pokemonType[0].src})`,
+                backgroundColor: `rgb(${pokemonType[0].color})`,
+
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "center",
+              }}
+              className={`w-32 h-full rounded-lg flex items-center justify-center`}
             >
-              <img
-                src={pokemonType[0].src}
-                className="absolute top-0 left-0 my-2 mx-[17px]"
-              />
               <img
                 alt="Pokemon image"
                 src={sprites.front_default}
-                className="absolute top-0 left-0 my-[7px] mx-4"
+                className=""
               />
             </div>
           </CardContent>
