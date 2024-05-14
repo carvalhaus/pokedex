@@ -29,7 +29,7 @@ function ApiProvider({ children }) {
 
   const [user, setUser] = useState(null);
 
-  const handleGoogleSignIn = () => {
+  const handleGoogleAuth = () => {
     const provider = new GoogleAuthProvider();
 
     signInWithPopup(auth, provider)
@@ -93,7 +93,7 @@ function ApiProvider({ children }) {
         ...favoriteList,
         isLogged,
         setIsLogged,
-        handleGoogleSignIn,
+        handleGoogleAuth,
         handleLogout,
         user,
         setUser,
