@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
+import { useApi } from "@/context/ApiContext";
 import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
+  const { handleGoogleAuth } = useApi();
+
   return (
     <div className="flex flex-col items-center p-4 pt-8 h-screen">
       <button
@@ -34,12 +37,12 @@ function Login() {
           <Button
             variant="outline"
             className="w-80 font-semibold text-[#173EA5] hover:text-[#173EA5]"
+            onClick={handleGoogleAuth}
           >
             <img
               src="src/assets/google.svg"
               alt="Google icon"
               className="pr-4"
-              onClick={handleGoogleSignIn}
             />
             Continuar com o Google
           </Button>
