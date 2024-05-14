@@ -4,8 +4,9 @@ import ContentMenu from "./ContentMenu";
 import HeaderMenu from "./HeaderMenu";
 import { ScrollArea } from "./ui/scroll-area";
 import { useState } from "react";
+
+import { SheetClose } from "./ui/sheet";
 import { Button } from "./ui/button";
-import { SheetClose, SheetFooter } from "./ui/sheet";
 
 function Menu() {
   const { isLogged, user, handleLogout } = useApi();
@@ -84,17 +85,15 @@ function Menu() {
               <p className="text-sm">Saiba mais sobre o app.</p>
             </div>
 
-            <SheetFooter className="w-full">
-              <SheetClose className="w-full">
-                <Button
-                  onClick={handleLogout}
-                  variant="outline"
-                  className="border-red-700 text-red-700 font-semibold hover:text-red-800 w-full"
-                >
-                  Sair
-                </Button>
-              </SheetClose>
-            </SheetFooter>
+            <SheetClose asChild>
+              <Button
+                onClick={handleLogout}
+                variant="outline"
+                className="border-red-700 text-red-700 font-semibold hover:text-red-800 w-full"
+              >
+                Sair
+              </Button>
+            </SheetClose>
           </div>
         </div>
       </div>
