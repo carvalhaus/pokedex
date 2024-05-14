@@ -69,7 +69,9 @@ function Pokemon() {
           <img className="animate-spin" src={loading_ellipse} />
         </div>
       ) : (
-        <PokemonDetails apiData={fullData} />
+        <div className="flex justify-center">
+          <PokemonDetails apiData={fullData} />
+        </div>
       )}
     </>
   );
