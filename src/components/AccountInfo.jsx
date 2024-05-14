@@ -2,6 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -74,10 +75,12 @@ function AccountInfo({ userData = {}, handleChange }) {
           </div>
         </div>
         <DialogFooter>
-          <Button type="submit" variant="outline">
-            Alterar senha
-          </Button>
-          <Button type="submit">Salvar</Button>
+          <DialogClose className="flex gap-4">
+            <Button type="submit" variant="outline">
+              Alterar senha
+            </Button>
+            <Button type="submit">Salvar</Button>
+          </DialogClose>
         </DialogFooter>
       </DialogContent>
     </Dialog>
