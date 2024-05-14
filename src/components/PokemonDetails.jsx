@@ -7,7 +7,7 @@ function PokemonDetails({ apiData }) {
 
   // console.log(name, data, types);
 
-  console.log(data.sprites.versions);
+  console.log(data);
 
   return (
     <div

@@ -36,9 +36,6 @@ function ApiProvider({ children }) {
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
-
-        setUser(result.user);
-        setIsLogged(true);
       })
       .then(() => {
         navigate("/");
@@ -46,6 +43,10 @@ function ApiProvider({ children }) {
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  const handleLogout = async () => {
+    await auth.signOut();
   };
 
   const addFavorite = (pokemon) =>
@@ -64,6 +65,22 @@ function ApiProvider({ children }) {
     localStorage.setItem("FAVORITES_POKEMONS", JSON.stringify(favoriteList));
   }, [favoriteList]);
 
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
+        setUser(authUser);
+        setIsLogged(true);
+      } else {
+        setUser(null);
+        setIsLogged(false);
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
   return (
     <ApiContext.Provider
       value={{
@@ -77,7 +94,9 @@ function ApiProvider({ children }) {
         isLogged,
         setIsLogged,
         handleGoogleSignIn,
+        handleLogout,
         user,
+        setUser,
       }}
     >
       {children}

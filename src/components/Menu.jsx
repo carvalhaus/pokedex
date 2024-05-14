@@ -4,9 +4,11 @@ import ContentMenu from "./ContentMenu";
 import HeaderMenu from "./HeaderMenu";
 import { ScrollArea } from "./ui/scroll-area";
 import { useState } from "react";
+import { Button } from "./ui/button";
+import { SheetClose, SheetFooter } from "./ui/sheet";
 
 function Menu() {
-  const { isLogged, user } = useApi();
+  const { isLogged, user, handleLogout } = useApi();
 
   const [userData, setUserData] = useState({ ...user, username: "" });
 
@@ -81,6 +83,18 @@ function Menu() {
               <h4 className="font-semibold text-sm">Sobre</h4>
               <p className="text-sm">Saiba mais sobre o app.</p>
             </div>
+
+            <SheetFooter className="w-full">
+              <SheetClose className="w-full">
+                <Button
+                  onClick={handleLogout}
+                  variant="outline"
+                  className="border-red-700 text-red-700 font-semibold hover:text-red-800 w-full"
+                >
+                  Sair
+                </Button>
+              </SheetClose>
+            </SheetFooter>
           </div>
         </div>
       </div>
