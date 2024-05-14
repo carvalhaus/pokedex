@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 function Register() {
   const navigate = useNavigate();
 
-  const { handleGoogleSignIn } = useApi();
+  const { handleGoogleAuth } = useApi();
 
   return (
     <div className="flex flex-col items-center p-4 pt-8 h-screen">
@@ -39,7 +39,7 @@ function Register() {
           <Button
             variant="outline"
             className="w-80 font-semibold text-[#173EA5] hover:text-[#173EA5]"
-            onClick={handleGoogleSignIn}
+            onClick={handleGoogleAuth}
           >
             <img
               src="src/assets/google.svg"
