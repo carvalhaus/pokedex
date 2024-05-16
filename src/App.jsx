@@ -8,6 +8,7 @@ import Auth from "./pages/Auth";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Pokemon from "./pages/Pokemon";
+import RegisterEmail from "./pages/RegisterEmail";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         </Route>
         <Route path="/auth" element={<Auth />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/register-email" element={<RegisterEmail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/pokemon/:id" element={<Pokemon />} />
       </Routes>

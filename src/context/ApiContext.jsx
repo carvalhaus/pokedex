@@ -29,6 +29,8 @@ function ApiProvider({ children }) {
 
   const [user, setUser] = useState(null);
 
+  const [userToken, setUserToken] = useState(null);
+
   const handleGoogleAuth = () => {
     const provider = new GoogleAuthProvider();
 
