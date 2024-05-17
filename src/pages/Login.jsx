@@ -46,9 +46,12 @@ function Login() {
             />
             Continuar com o Google
           </Button>
-          <Button className="w-80 bg-[#173EA5] font-semibold">
-            Continuar com um e-mail
-          </Button>
+
+          <Link to={"/login-email"}>
+            <Button className="w-80 bg-[#173EA5] font-semibold">
+              Continuar com um e-mail
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
