@@ -5,7 +5,7 @@ function RegisterEmail() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col items-center p-4 pt-8 h-screen">
+    <div className="flex flex-col items-center p-4 pt-8 h-screen gap-6">
       <button
         className="absolute left-3 top-7 flex gap-1 items-center justify-center font-medium"
         onClick={() => navigate(-1)}
