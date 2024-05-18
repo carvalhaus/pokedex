@@ -11,6 +11,8 @@ import Pokemon from "./pages/Pokemon";
 import RegisterEmail from "./pages/RegisterEmail";
 import LoginEmail from "./pages/LoginEmail";
 import ForgotPassword from "./pages/ForgotPassword";
+import ChangePassword from "./pages/ChangePassword";
+import { Toaster } from "./components/ui/toaster";
 
 function App() {
   return (
@@ -27,8 +29,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/login-email" element={<LoginEmail />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/change-password" element={<ChangePassword />} />
         <Route path="/pokemon/:id" element={<Pokemon />} />
       </Routes>
+      <Toaster />
     </ApiProvider>
   );
 }
