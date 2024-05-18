@@ -1,11 +1,12 @@
 import { useForm } from "react-hook-form";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
+import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 
 function LoginEmailForm() {
   const {
     register,
-    watch,
     handleSubmit,
     formState: { errors },
   } = useForm();
@@ -17,9 +18,9 @@ function LoginEmailForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="mt-8 grid grid-cols-6 gap-6 max-[430px]:flex max-[430px]:flex-col max-[430px]:items-center"
+      className="w-full sm:w-[600px] flex flex-col gap-6 items-center justify-center"
     >
-      <div className="col-span-6 max-[430px]:w-full">
+      <div className="w-full">
         <Label
           htmlFor="Email"
           className="block text-sm font-medium text-gray-700"
@@ -49,7 +50,7 @@ function LoginEmailForm() {
         )}
       </div>
 
-      <div className="col-span-6 sm:col-span-3 max-[430px]:w-full">
+      <div className="w-full">
         <Label
           htmlFor="Password"
           className="block text-sm font-medium text-gray-700"
@@ -79,6 +80,16 @@ function LoginEmailForm() {
             Sua senha deve ter entre 4 e 30 caracteres.
           </small>
         )}
+      </div>
+
+      <div className="flex flex-col gap-4 items-center justify-center">
+        <Button className="w-80 bg-[#173EA5] font-semibold" type="submit">
+          Entrar
+        </Button>
+
+        <Link to={"/login"} className="text-gray-700">
+          Esqueceu sua senha ?
+        </Link>
       </div>
     </form>
   );
