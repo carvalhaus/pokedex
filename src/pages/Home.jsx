@@ -38,7 +38,11 @@ function Home() {
             <SelectTrigger className="w-[140px] focus-visible:ring-transparent">
               <SelectValue placeholder="Todos os tipos" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent
+              ref={(ref) =>
+                ref?.addEventListener("touchend", (e) => e.preventDefault())
+              }
+            >
               <SelectGroup>
                 <SelectLabel>Selecione o tipo</SelectLabel>
                 <SelectItem key="null" value={null}>
@@ -60,7 +64,11 @@ function Home() {
             <SelectTrigger className="w-[160px] focus-visible:ring-transparent">
               <SelectValue placeholder="Ordenar por" />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent
+              ref={(ref) =>
+                ref?.addEventListener("touchend", (e) => e.preventDefault())
+              }
+            >
               <SelectGroup>
                 <SelectLabel>Selecione a ordem</SelectLabel>
                 <SelectItem value="lower_number">Menor número</SelectItem>
