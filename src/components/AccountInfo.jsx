@@ -74,14 +74,18 @@ function AccountInfo({ userData = {}, handleChange }) {
             />
           </div>
         </div>
-        <DialogFooter>
-          <DialogClose className="flex gap-4">
+
+        <div className="flex justify-end gap-4">
+          <DialogClose asChild>
             <Button type="submit" variant="outline">
               Alterar senha
             </Button>
+          </DialogClose>
+
+          <DialogClose asChild>
             <Button type="submit">Salvar</Button>
           </DialogClose>
-        </DialogFooter>
+        </div>
       </DialogContent>
     </Dialog>
   );
