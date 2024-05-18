@@ -208,7 +208,7 @@ function RegisterEmailForm() {
 
       <div className="col-span-6 sm:flex sm:items-center sm:gap-4 sm:justify-center">
         <Button className="w-80 bg-[#173EA5] font-semibold" type="submit">
-          Create an account
+          Criar sua conta
         </Button>
 
         <p className="mt-4 text-sm text-gray-500 sm:mt-0 text-center">
