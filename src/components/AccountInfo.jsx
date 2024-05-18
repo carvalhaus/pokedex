@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
 import {
@@ -77,9 +78,11 @@ function AccountInfo({ userData = {}, handleChange }) {
 
         <div className="flex justify-end gap-4">
           <DialogClose asChild>
-            <Button type="submit" variant="outline">
-              Alterar senha
-            </Button>
+            <Link to={"/change-password"}>
+              <Button type="submit" variant="outline">
+                Alterar senha
+              </Button>
+            </Link>
           </DialogClose>
 
           <DialogClose asChild>
