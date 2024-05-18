@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import Pokemon from "./pages/Pokemon";
 import RegisterEmail from "./pages/RegisterEmail";
 import LoginEmail from "./pages/LoginEmail";
+import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/register-email" element={<RegisterEmail />} />
         <Route path="/login" element={<Login />} />
         <Route path="/login-email" element={<LoginEmail />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/pokemon/:id" element={<Pokemon />} />
       </Routes>
     </ApiProvider>
