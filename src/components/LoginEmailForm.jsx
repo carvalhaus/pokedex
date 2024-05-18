@@ -87,7 +87,7 @@ function LoginEmailForm() {
           Entrar
         </Button>
 
-        <Link to={"/login"} className="text-gray-700">
+        <Link to={"/forgot-password"} className="text-gray-700">
           Esqueceu sua senha ?
         </Link>
       </div>

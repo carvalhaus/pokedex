@@ -1,7 +1,9 @@
 import LoginEmailForm from "@/components/LoginEmailForm";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function LoginEmail() {
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-col items-center p-4 pt-8 h-screen gap-6">
       <button
