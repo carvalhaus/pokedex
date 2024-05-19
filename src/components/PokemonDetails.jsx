@@ -7,7 +7,7 @@ function PokemonDetails({ apiData }) {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col items-center h-screen sm:w-4/5 sm:border-gray-200 sm:border-2 sm:rounded-2xl sm:overflow-hidden">
+    <div className="flex flex-col items-center h-full sm:w-4/5 sm:border-gray-200 sm:border-2 sm:rounded-2xl sm:overflow-hidden">
       <div
         style={{
           background: `linear-gradient(0deg, rgba(255,255,255,1) 10%, rgba(${types[0].color},0.7)30%)`,
@@ -33,7 +33,7 @@ function PokemonDetails({ apiData }) {
           />
         </div>
       </div>
-      <div className="flex flex-col items-start justify-start w-full px-5 pb-5 gap-4">
+      <div className="flex flex-col items-start justify-start w-full px-5 pb-10 gap-4">
         <div>
           <h2 className="font-medium text-3xl">{name}</h2>
           <p className="font-medium text-gray-600">Nº {data.id}</p>

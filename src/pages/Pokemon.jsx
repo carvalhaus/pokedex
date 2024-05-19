@@ -69,7 +69,7 @@ function Pokemon() {
           <img className="animate-spin" src={loading_ellipse} />
         </div>
       ) : (
-        <div className="flex justify-center">
+        <div className="flex justify-center items-center sm:p-8">
           <PokemonDetails apiData={fullData} />
         </div>
       )}
