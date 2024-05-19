@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Button } from "./ui/button";
@@ -15,6 +15,8 @@ import {
 import { useForm } from "react-hook-form";
 
 function RegisterEmailForm() {
+  const navigate = useNavigate();
+
   const {
     register,
     watch,
@@ -24,6 +26,7 @@ function RegisterEmailForm() {
 
   const onSubmit = (data) => {
     console.log(data);
+    navigate("/");
   };
 
   return (
