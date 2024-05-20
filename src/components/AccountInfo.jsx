@@ -1,18 +1,17 @@
 import { Link } from "react-router-dom";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Button } from "./ui/button";
 import {
   Dialog,
   DialogClose,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "./ui/dialog";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 function AccountInfo({ userData = {}, handleChange }) {
   const { email, photoURL, displayName, username } = userData;
@@ -20,13 +19,9 @@ function AccountInfo({ userData = {}, handleChange }) {
     <Dialog>
       <DialogTrigger className="text-left pb-5 border-b-2 flex gap-2 items-center w-full">
         <Avatar>
-          {photoURL ? (
-            <AvatarImage src={photoURL} alt="Profile picture" />
-          ) : (
-            <AvatarFallback className="bg-[#173EA5] text-white">
-              {displayName[0]}
-            </AvatarFallback>
-          )}
+          <AvatarFallback className="bg-[#173EA5] text-white">
+            {displayName[0]}
+          </AvatarFallback>
         </Avatar>
         <p className="text-lg font-semibold">{displayName}</p>
       </DialogTrigger>

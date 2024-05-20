@@ -7,9 +7,11 @@ import { useState } from "react";
 
 import { SheetClose } from "./ui/sheet";
 import { Button } from "./ui/button";
+import useGoogleAuth from "@/hooks/useGoogleAuth";
 
 function Menu() {
-  const { isLogged, user, handleLogout } = useApi();
+  const { isLogged, user } = useApi();
+  const { handleLogout } = useGoogleAuth();
 
   const [userData, setUserData] = useState({ ...user, username: "" });
 

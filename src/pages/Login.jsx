@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { useApi } from "@/context/ApiContext";
+import useGoogleAuth from "@/hooks/useGoogleAuth";
 import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
-  const { handleGoogleAuth } = useApi();
+  const { handleGoogleAuth } = useGoogleAuth();
 
   return (
     <div className="flex flex-col items-center p-4 pt-8 h-screen">
