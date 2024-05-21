@@ -23,6 +23,8 @@ function ApiProvider({ children }) {
   const [favoriteList, setFavoriteList] = useState(getInitialFavoriteListState);
   const [user, setUser] = useState(null);
 
+  console.log(user);
+
   const addFavorite = (pokemon) =>
     setFavoriteList((prev) => ({
       ...prev,
