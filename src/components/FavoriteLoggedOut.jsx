@@ -17,7 +17,7 @@ function FavoriteLoggedOut() {
         conta. Faça isso agora!
       </p>
 
-      <Link to={"/auth"}>
+      <Link to={"/pokedex/auth"}>
         <Button
           variant="outline"
           className="text-[#173EA5] border-[#173EA5] border-2 font-bold w-full hover:text-[#173EA5]"

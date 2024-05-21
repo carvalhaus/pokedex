@@ -37,13 +37,13 @@ function Nav({ url }) {
     const updatedIcons = { ...icons };
 
     switch (params.pathname) {
-      case "/regions":
+      case "/pokedex/regions":
         updatedIcons.pokedex_icon = pokedex_off;
         updatedIcons.regions_icon = regions_on;
         updatedIcons.favorites_icon = favorites_off;
         updatedIcons.menu_icon = menu_off;
         break;
-      case "/favorites":
+      case "/pokedex/favorites":
         updatedIcons.pokedex_icon = pokedex_off;
         updatedIcons.regions_icon = regions_off;
         updatedIcons.favorites_icon = favorites_on;
@@ -63,21 +63,21 @@ function Nav({ url }) {
 
   return (
     <nav className="fixed bg-white bottom-0 h-20 flex align-middle justify-center w-screen border-t-2 border-gray-300 gap-2 px-8 py-1">
-      <Link to={"/"} className="content-center">
+      <Link to={"/pokedex"} className="content-center">
         <img
           alt="Pokedex icon"
           src={icons.pokedex_icon}
           className={`h-full ${animate ? "animate-fadeInUp_animantion" : ""}`}
         />
       </Link>
-      <Link to={"/regions"} className="content-center">
+      <Link to={"/pokedex/regions"} className="content-center">
         <img
           alt="Location icon"
           src={icons.regions_icon}
           className={`h-full ${animate ? "animate-fadeInUp_animantion" : ""}`}
         />
       </Link>
-      <Link to={"/favorites"} className="content-center">
+      <Link to={"/pokedex/favorites"} className="content-center">
         <img
           alt="Favorite icon"
           src={icons.favorites_icon}

@@ -18,19 +18,19 @@ function App() {
   return (
     <ApiProvider>
       <Routes>
-        <Route path="/" element={<StandardPage />}>
+        <Route path="/pokedex/" element={<StandardPage />}>
           <Route index element={<Home />} />
           <Route path="regions" element={<Regions />} />
           <Route path="favorites" element={<Favorites />} />
         </Route>
-        <Route path="/auth" element={<Auth />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/register-email" element={<RegisterEmail />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/login-email" element={<LoginEmail />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/change-password" element={<ChangePassword />} />
-        <Route path="/pokemon/:id" element={<Pokemon />} />
+        <Route path="/pokedex/auth" element={<Auth />} />
+        <Route path="/pokedex/register" element={<Register />} />
+        <Route path="/pokedex/register-email" element={<RegisterEmail />} />
+        <Route path="/pokedex/login" element={<Login />} />
+        <Route path="/pokedex/login-email" element={<LoginEmail />} />
+        <Route path="/pokedex/forgot-password" element={<ForgotPassword />} />
+        <Route path="/pokedex/change-password" element={<ChangePassword />} />
+        <Route path="/pokedex/pokemon/:id" element={<Pokemon />} />
       </Routes>
       <Toaster />
     </ApiProvider>

@@ -13,7 +13,7 @@ function HeaderMenu() {
         <img src={characters} className="w-[120px]" />
       </div>
 
-      <Link to={"/auth"}>
+      <Link to={"/pokedex/auth"}>
         <Button
           variant="outline"
           className="text-[#173EA5] border-[#173EA5] border-2 font-bold w-full"

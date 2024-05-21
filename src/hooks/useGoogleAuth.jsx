@@ -17,7 +17,7 @@ function useGoogleAuth() {
         const token = credential.accessToken;
       })
       .then(() => {
-        navigate("/");
+        navigate("/pokedex");
       })
       .catch((error) => {
         console.log(error);

@@ -26,7 +26,7 @@ function RegisterEmailForm() {
 
   const onSubmit = (data) => {
     console.log(data);
-    navigate("/");
+    navigate("/pokedex");
   };
 
   return (
