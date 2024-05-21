@@ -5,10 +5,11 @@ const URL_DEFAULT = "https://pokeapi.co/api/v2/pokemon?limit=30&offset=0";
 function usePokemons() {
   const [pokemons, setPokemons] = useState([]);
   const [nextUrl, setNextUrl] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
   const fetchData = async (url = URL_DEFAULT) => {
+    setLoading(true);
     try {
       const response = await axios.get(url);
       const { next, results } = response.data;
