@@ -14,7 +14,7 @@ function RegisterEmail() {
       </button>
 
       <Link
-        to={"/pokedex"}
+        to={"/"}
         className="absolute right-3 top-8 flex items-center font-medium"
       >
         <p className="text-sm">Pular</p>

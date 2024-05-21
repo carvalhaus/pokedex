@@ -5,7 +5,7 @@ function Login() {
   return (
     <div className="flex flex-col gap-8 text-center items-center justify-center h-screen p-4 animate-fade_animation relative">
       <Link
-        to={"/pokedex"}
+        to={"/"}
         className="absolute right-3 top-8 flex items-center font-medium"
       >
         <p className="text-sm">Pular</p>
@@ -27,13 +27,13 @@ function Login() {
       </div>
 
       <div>
-        <Link to={"/pokedex/register"}>
+        <Link to={"/register"}>
           <Button className="w-80 bg-[#173EA5] m-2 font-semibold">
             Criar conta
           </Button>
         </Link>
 
-        <Link to={"/pokedex/login"}>
+        <Link to={"/login"}>
           <Button
             className="w-80 font-semibold text-[#173EA5] hover:text-[#173EA5]"
             variant="ghost"

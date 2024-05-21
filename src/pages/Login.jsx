@@ -17,7 +17,7 @@ function Login() {
       </button>
 
       <Link
-        to={"/pokedex"}
+        to={"/"}
         className="absolute right-3 top-8 flex items-center font-medium"
       >
         <p className="text-sm">Pular</p>
@@ -48,7 +48,7 @@ function Login() {
             Continuar com o Google
           </Button>
 
-          <Link to={"/pokedex/login-email"}>
+          <Link to={"/login-email"}>
             <Button className="w-80 bg-[#173EA5] font-semibold">
               Continuar com um e-mail
             </Button>

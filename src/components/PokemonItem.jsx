@@ -41,7 +41,7 @@ function PokemonItem({
 
   return (
     <li className="list-none w-80 max-[430px]:w-full relative">
-      <Link to={`/pokedex/pokemon/${id}`}>
+      <Link to={`/pokemon/${id}`}>
         <Card
           style={{ backgroundColor: `rgba(${pokemonType[0].color}, 0.15)` }}
           className={`flex justify-between overflow-hidden h-28`}

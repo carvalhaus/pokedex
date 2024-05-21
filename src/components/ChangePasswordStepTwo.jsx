@@ -27,7 +27,7 @@ function ChangePasswordStepTwo() {
 
   const onSubmit = (data) => {
     console.log(data);
-    navigate("/pokedex");
+    navigate("/");
     handleToast();
   };
 
