@@ -1,14 +1,11 @@
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
+import not_logged from "../assets/not_logged.png";
 
 function FavoriteLoggedOut() {
   return (
     <div className="flex flex-col gap-4 justify-center items-center pt-10">
-      <img
-        src="src/assets/not_logged.png"
-        alt="Character not logged image"
-        className="w-80"
-      />
+      <img src={not_logged} alt="Character not logged image" className="w-80" />
       <h2 className="font-semibold text-2xl">
         Você precisa entrar em uma conta para fazer isso.
       </h2>
