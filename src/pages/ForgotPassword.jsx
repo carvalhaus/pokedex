@@ -4,6 +4,8 @@ import { Label } from "@radix-ui/react-label";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
+import arrow_left from "../assets/Arrow_left.svg";
+
 function ForgotPassword() {
   const navigate = useNavigate();
 
@@ -23,7 +25,7 @@ function ForgotPassword() {
         className="absolute left-3 top-7 flex gap-1 items-center justify-center font-medium"
         onClick={() => navigate(-1)}
       >
-        <img src="src/assets/Arrow_left.svg" alt="Arrow left image" />
+        <img src={arrow_left} alt="Arrow left image" />
       </button>
       <h1 className="font-semibold text-xl">Esqueci minha senha</h1>
 

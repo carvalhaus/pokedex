@@ -1,6 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { Badge } from "./ui/badge";
 
+import weight_icon from "../assets/icons/weight.svg";
+import height_icon from "../assets/icons/height.svg";
+import ability_icon from "../assets/icons/ability.svg";
+import pokeball_icon from "../assets/icons/pokeball.svg";
+import arrow_left_white from "../assets/Arrow_left_white.svg";
+
 function PokemonDetails({ apiData }) {
   const { name, data, types } = apiData;
 
@@ -15,7 +21,7 @@ function PokemonDetails({ apiData }) {
         className={`w-full h-80 relative flex`}
       >
         <button onClick={() => navigate(-1)} className="absolute top-1 left-1">
-          <img src=".././src/assets/Arrow_left_white.svg" />
+          <img src={arrow_left_white} alt="Arrow left white" />
         </button>
         <div
           className="w-full h-full flex items-end justify-center"
@@ -59,7 +65,7 @@ function PokemonDetails({ apiData }) {
         >
           <div className="w-32 flex flex-col gap-1 py-4">
             <div className="flex items-center w-full justify-center gap-1">
-              <img src="../src/assets/icons/weight.svg" className="w-6" />
+              <img src={weight_icon} className="w-6" />
               <h3 className="uppercase font-medium text-gray-600">Peso</h3>
             </div>
             <p className="font-semibold w-full border-gray-300 border-2 rounded-lg text-center p-1">
@@ -69,7 +75,7 @@ function PokemonDetails({ apiData }) {
 
           <div className="w-32 flex flex-col gap-1 py-4">
             <div className="flex items-center w-full justify-center gap-1">
-              <img src="../src/assets/icons/height.svg" className="w-6" />
+              <img src={height_icon} className="w-6" />
               <h3 className="uppercase font-medium text-gray-600">Altura</h3>
             </div>
             <p className="font-semibold w-full border-gray-300 border-2 rounded-lg text-center p-1">
@@ -79,7 +85,7 @@ function PokemonDetails({ apiData }) {
 
           <div className="w-32 flex flex-col gap-1 py-4">
             <div className="flex items-center w-full justify-center gap-1">
-              <img src="../src/assets/icons/ability.svg" className="w-6" />
+              <img src={ability_icon} className="w-6" />
               <h3 className="uppercase font-medium text-gray-600">
                 Habilidade
               </h3>
@@ -96,7 +102,7 @@ function PokemonDetails({ apiData }) {
 
           <div className="w-32 flex flex-col gap-1 py-4">
             <div className="flex items-center w-full  justify-center gap-1">
-              <img src="../src/assets/icons/pokeball.svg" className="w-6" />
+              <img src={pokeball_icon} className="w-6" />
               <h3 className="uppercase font-medium text-gray-600">
                 Experiência
               </h3>

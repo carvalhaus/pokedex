@@ -4,13 +4,13 @@ import Login from "@/components/Login";
 
 const stepsData = [
   {
-    src: "src/assets/auth_1.png",
+    src: "https://raw.githubusercontent.com/carvalhaus/pokedex/main/src/assets/auth_1.png",
     title: "Todos os Pokémons em um só Lugar",
     subTitle: "Acesse uma vasta lista de Pokémon de todas as gerações",
     button: "Continuar",
   },
   {
-    src: "src/assets/auth_2.png",
+    src: "https://raw.githubusercontent.com/carvalhaus/pokedex/main/src/assets/auth_2.png",
     title: "Mantenha sua Pokédex atualizada",
     subTitle:
       "Cadastre-se e mantenha seu perfil, pokémon favoritos, configurações e muito mais, salvos",

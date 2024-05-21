@@ -1,5 +1,7 @@
 import RegisterEmailForm from "@/components/RegisterEmailForm";
 import { Link, useNavigate } from "react-router-dom";
+import arrow_left from "../assets/Arrow_left.svg";
+import arrow_right from "../assets/Arrow_right.svg";
 
 function RegisterEmail() {
   const navigate = useNavigate();
@@ -10,7 +12,7 @@ function RegisterEmail() {
         className="absolute left-3 top-7 flex gap-1 items-center justify-center font-medium"
         onClick={() => navigate(-1)}
       >
-        <img src="src/assets/Arrow_left.svg" alt="Arrow left image" />
+        <img src={arrow_left} alt="Arrow left image" />
       </button>
 
       <Link
@@ -18,7 +20,7 @@ function RegisterEmail() {
         className="absolute right-3 top-8 flex items-center font-medium"
       >
         <p className="text-sm">Pular</p>
-        <img src="src/assets/Arrow_right.svg" alt="Arrow right image" />
+        <img src={arrow_right} alt="Arrow right image" />
       </Link>
 
       <h1 className="font-semibold text-xl">Criar conta</h1>

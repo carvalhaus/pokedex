@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
+import arrow_right from "../assets/Arrow_right.svg";
+import characters from "../assets/characters.png";
 
 function Login() {
   return (
@@ -9,15 +11,11 @@ function Login() {
         className="absolute right-3 top-8 flex items-center font-medium"
       >
         <p className="text-sm">Pular</p>
-        <img src="src/assets/Arrow_right.svg" alt="Arrow right image" />
+        <img src={arrow_right} alt="Arrow right image" />
       </Link>
 
       <div className="flex flex-col gap-2 text-center items-center">
-        <img
-          className=""
-          src="src/assets/characters.png"
-          alt="Characters image"
-        />
+        <img className="" src={characters} alt="Characters image" />
         <h1 className="font-medium text-2xl">
           Está pronto para essa aventura?
         </h1>

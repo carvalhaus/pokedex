@@ -2,6 +2,7 @@ import ChangePasswordStepOne from "@/components/ChangePasswordStepOne";
 import ChangePasswordStepTwo from "@/components/ChangePasswordStepTwo";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import arrow_left from "../assets/Arrow_left.svg";
 
 function ChangePassword() {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ function ChangePassword() {
         className="absolute left-3 top-7 flex gap-1 items-center justify-center font-medium"
         onClick={() => navigate(-1)}
       >
-        <img src="src/assets/Arrow_left.svg" alt="Arrow left image" />
+        <img src={arrow_left} alt="Arrow left image" />
       </button>
 
       <h1 className="font-semibold text-xl">Trocar senha</h1>
